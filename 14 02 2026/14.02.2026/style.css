@@ -1,0 +1,41 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #222;
+    padding: 12px;
+    vertical-align: top;
+}
+
+.t1 {
+    width: 100%;
+}
+
+.t1 td {
+    height: 80px;
+}
+
+.t2 {
+    width: 140px;
+}
+
+.ava {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    border: 2px solid #222;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.t3 {
+    padding: 12px;
+}
+
+.t4 {
+    height: 56px;
+}

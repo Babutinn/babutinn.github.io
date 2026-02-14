@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Layout — Flex</title>
+    <link rel="stylesheet" href="styleflex.css">
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-row">
+            <div class="flex-cell top-cell" style="flex: 1;">
+                <div class="t1">
+                    <div class="inner-row">
+                        <div class="inner-cell"> </div>
+                        <div class="inner-cell"> </div>
+                        <div class="inner-cell"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-row">
+            <div class="flex-cell t2">
+                <div style="height:500px;">
+                    <div style="margin:8px 0; border-top:1px solid #999;"></div>
+                    <div style="margin:8px 0; border-top:1px solid #999;"></div>
+                    <div style="margin:8px 0; border-top:1px solid #999;"></div>
+                    <div style="margin:8px 0; border-top:1px solid #999;"></div>
+                    <div style="margin:8px 0; border-top:1px solid #999;"></div>
+                </div>
+            </div>
+
+            <div class="flex-cell t3" style="flex: 2;">
+                <div>
+                    <span class="ava"></span>
+                    <span style="vertical-align:top; size:20px; display:inline-block; margin-top:18px;">Hello</span>
+                </div>
+                <div style="height:220px;"></div>
+            </div>
+        </div>
+
+        <div class="flex-row">
+            <div class="flex-cell t4" style="flex: 1;"> </div>
+        </div>
+    </div>
+</body>
+</html>
