@@ -1,32 +1,41 @@
-.container{
-    margin-right: 47px;
-    margin-left: 47px;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-
-.header{
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: <400px>;
-    font-style: normal;
-
-    position: fixed;     /* Хедер зафиксирован на экране */
-    top: 0;              /* Прижат к самому верху */
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+}
+.container {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 40px; 
+    box-sizing: border-box;
+}
+.header {
+    position: fixed;
+    top: 0;
     left: 0;
-    width: 100%;         /* Растянут на всю ширину */
-    height: 120px;        /* Высота шапки */
+    width: 100%;
+    height: 120px;
     background-color: #ffffff;
+    z-index: 9999;
+
+}
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 50px;
-    box-sizing: border-box; /* Чтобы padding не раздувал ширину */
-    
-    z-index: 9999;           /* Хедер всегда поверх остального контента */
-  }
-  
+    padding: 0 40px;
+    box-sizing: border-box;
+}
 .header img{
-    width: 261px;
-    height: 93px;
+        width: clamp(150px, 20vw, 261px);
+        height: auto;
 }
 .header a{
     text-decoration: none;
@@ -36,29 +45,112 @@
     font-optical-sizing: auto;
     font-weight: <400px>;
     font-style: normal;
-    font-size: 20px;
+    font-size: clamp(14px, 2vw, 20px);
 }
 .header a:hover {
     color: #FF7CA5;
     transition: .2s;
 }
 
-.owner{
-    margin-top: 120px;
+.card{
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: <600px>;
     font-style: normal;
+    width: calc(25% - 30px);
+    min-width: 250px
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
 }
 .boxes{
     display: flex;
     justify-content: center;
     gap: 40px;
-
+    flex-wrap: wrap;
 }
 .imghere{
     height: 524px;
     width: 424px;
     background-color: #D9D9D9;
     border-radius: 25px;
+}
+.amount{
+    font-weight: regular;
+    font-size: clamp(18px, 2vw, 30px);
+    color: #202020;
+    margin: 5px 0;
+}
+.card .btn{
+    width: 66.4px;
+    height: 50.4px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ffe4e9;
+    color: #ff4d6d;
+    font-size: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+    margin-top: 5px;
+}
+.card .btn:hover {
+    background-color: #ffd1da;
+    
+    transform: scale(1.05);
+
+}
+.name{
+    font-weight: regular;
+    font-size: 35px;
+    color: #000000;
+    margin: 5px 0 5px 0;
+}
+.price{
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+.img-container {
+    background-color: #D9D9D9;
+    border-radius: 25px;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background-color: #D9D9D9;
+    border-radius: 25px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.flower-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+.shop-section {
+    padding: 20px 0;
+}
+
+.section-title {
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    margin-bottom: 40px;
+    margin-top: 120px;
+    font-size: clamp(24px, 5vw, 40px);
+}
+.section-title1 {
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: clamp(24px, 5vw, 40px);
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
