@@ -2,14 +2,15 @@
 <html lang="ru">
 
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flower Shop</title>
-    <link rel="stylesheet" href="../style/login.css">
+    <title>Flower Shop - Регистрация</title>
+    <link rel="stylesheet" href="../style/test.css">
 </head>
 
 <body class="login-page">
@@ -20,33 +21,68 @@
                 <a href="../html/main.html">Главная</a>
                 <a href="../html/korzina.html">Корзина</a>
                 <a href="../html/grafic.html">Расписание</a>
-                <a href="../html/login.html">Войти</a>
+                <a href="../html/register.html">Войти</a>
             </div>
         </div>
     </header>
+    
     <main class="container">
         <div class="login-bg-wrapper">
             <main class="login-main">
                 <div class="login-card">
-                    <h1 class="login-title">Вход</h1>
-                    <form class="login-form">
+                    <h1 class="login-title">Регистрация</h1>
+                    <form class="login-form" id="registerFormElement">
                         <div class="input-group">
-                            <input type="login" placeholder="Введите логин" required>
+                            <input type="text" id="registerUsername" placeholder="Придумайте логин" required>
                         </div>
                         <div class="input-group">
-                            <input type="password" placeholder="Введите пароль" required>
+                            <input type="password" id="registerPassword" placeholder="Придумайте пароль" required>
                         </div>
-                        <button type="submit" class="login-submit">
-                            <a href="../html/main.html">Войти</a>
-                        </button>
-                        <div class="login-footer">
-                            <a href="#">Нет аккаунта? Зарегистрироваться</a>
-                        </div>
+                        <div class="error-message" id="registerError"></div>
+                        <button type="submit" class="login-submit" id="registerSubmitBtn">Зарегистрироваться</button>
                     </form>
                 </div>
             </main>
         </div>
-        <main>
+    </main>
+
+    <script>
+        const sessi = supabase.createClient(
+            'https://wiorzchuklcwzkgxukpu.supabase.co', 
+            'sb_publishable_csxhMRK_Mxn9syrgrPnFxg_xVe5JxKR'
+        );
+        console.log('Supabase client initialized');
+        document.getElementById("registerFormElement").onsubmit = async function(e) {
+            e.preventDefault();
+            
+            var u = document.querySelector("#registerUsername").value;
+            var p = document.querySelector("#registerPassword").value;
+            var s = document.querySelector("#registerSubmitBtn");
+            var errorDiv = document.getElementById('registerError');
+            errorDiv.style.display = 'none';
+            
+            s.setAttribute('disabled', '1');
+            
+            try {
+                var res = await sessi.from('uusseerr').insert({ username: u, password: p }).select();
+                console.log(res);
+                
+                if(res.error == null) { 
+                    window.location.href = "../html/main.html";
+                }
+                else { 
+                    errorDiv.textContent = res.error.details || res.error.message || 'Ошибка регистрации';
+                    errorDiv.style.display = 'block';
+                    s.removeAttribute('disabled');
+                }
+            } catch (err) {
+                console.error('Ошибка:', err);
+                errorDiv.textContent = 'Произошла ошибка при подключении';
+                errorDiv.style.display = 'block';
+                s.removeAttribute('disabled');
+            }
+        }
+    </script>
 </body>
 
 </html>
